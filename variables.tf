@@ -1,16 +1,29 @@
+variable "region" {
+  type        = string
+  description = "Your desired AWS region"
+  default     = "us-east-1"
+}
+
+variable "availability_zone" {
+  type        = string
+  description = "Your desired Availability Zone"
+  default     = "us-east-1a"
+}
+
+variable "instance_ami" {
+  type        = string
+  description = "The Ubuntu based AMI instance ID"
+  default     = "ami-053b0d53c279acc90" # Canonical, Ubuntu, 22.04 LTS, amd64 jammy image build on 2023-05-16
+}
+
+variable "instance_type" {
+  type        = string
+  description = "The AWS instance type"
+  default     = "t2.micro"
+}
+
 variable "key_name" {
-  default = "Cool_Key_Name"
-}
-
-variable "public_key" {
-  default = "your_public_key"
-}
-
-#default security group within the aws ec2 instance
-variable "security_group" {
-  default = "sg-security_group"
-}
-
-variable "private_key" {
-  default = "../.ssh/location_to_secret_key.pem"
+  type        = string
+  description = "The existing AWS key pair"
+  default     = "default-key-pair"
 }
